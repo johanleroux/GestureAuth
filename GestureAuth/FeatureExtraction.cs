@@ -15,9 +15,6 @@ namespace GestureAuth
         private VectorOfPoint _handContour = new VectorOfPoint();
         private double _handArea;
 
-        public Point handPoint;
-        public Rectangle handBoundingBox;
-
         public FeatureExtraction(Mat frame)
         {
             _frame = frame;
@@ -64,12 +61,12 @@ namespace GestureAuth
 
         private Mat determineHandLocation(Mat processFrame)
         {
-            handBoundingBox = CvInvoke.BoundingRectangle(_handContour);
+            Config.handBoundingBox = CvInvoke.BoundingRectangle(_handContour);
 
             if(Config.debug)
-                CvInvoke.Rectangle(processFrame, handBoundingBox, Config.drawingColor);
+                CvInvoke.Rectangle(processFrame, Config.handBoundingBox, Config.drawingColor);
 
-            handPoint = new Point(handBoundingBox.X + handBoundingBox.Width / 2, handBoundingBox.Y + handBoundingBox.Height / 2);
+            Config.handPoint = new Point(Config.handBoundingBox.X + Config.handBoundingBox.Width / 2, Config.handBoundingBox.Y + Config.handBoundingBox.Height / 2);
 
             return processFrame;
         }
