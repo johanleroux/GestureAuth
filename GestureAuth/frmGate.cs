@@ -190,9 +190,29 @@ namespace GestureAuth
        
             drawDiagnostics();
 
-            CvInvoke.PutText(_frame, "Please enter", new Point(0, 30), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
-            CvInvoke.PutText(_frame, "hidden password", new Point(0, 45), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
-            CvInvoke.PutText(_frame, _hiddenPassword + " ;-)", new Point(0, 60), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            int pos = 2;
+            CvInvoke.PutText(_frame, "Please enter", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "hidden password", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, _hiddenPassword + " ;-)", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+
+            pos += 10;
+            CvInvoke.PutText(_frame, "To enter password", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "hold fist over", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "node to lock on.", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "Drag node to the", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "answer circle in", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "the middle.", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+
+            pos += 2;
+            CvInvoke.PutText(_frame, "Drop a node by", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "dragging in the", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "trash at the top.", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "the middle.", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+
+            pos += 2;
+            CvInvoke.PutText(_frame, "Reorganise nodes", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "using the R at ", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
+            CvInvoke.PutText(_frame, "the top.", new Point(0, pos++ * 15), Config.fontFace, 1, Config.drawingColor, 1, LineType.AntiAlias);
 
             MCvScalar ansNodeColour = new MCvScalar();
             if (_enteredPassword.Length != _hiddenPassword.Length)
